@@ -1,0 +1,10 @@
+# Unused / reference-only assets (not linked from the live site)
+dev-magician.png
+sample.png
+sample1.png
+sample2.png
+SITE_SPEC.md
+
+# OS cruft
+.DS_Store
+Thumbs.db
