@@ -3,6 +3,7 @@ name: Deploy to Production
 on:
   push:
     branches: [master]
+  workflow_dispatch:
 
 concurrency:
   group: deploy-production
@@ -11,7 +12,9 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: production
+    environment:
+      name: production
+      url: ${{ vars.SITE_URL || 'https://niko-theimpostor.dev' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -21,12 +24,21 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      - name: Add VPS to known_hosts
+      - name: Add VPS host key
+        env:
+          SSH_HOST: ${{ vars.SSH_HOST || '76.13.18.99' }}
+          SSH_PORT: ${{ vars.SSH_PORT || '22' }}
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_HOST }}" >> ~/.ssh/known_hosts
+          chmod 700 ~/.ssh
+          ssh-keyscan -p "$SSH_PORT" -H "$SSH_HOST" >> ~/.ssh/known_hosts
+          echo "Added $(wc -l < ~/.ssh/known_hosts) host key(s)"
 
       - name: Sync files to VPS (production)
+        env:
+          SSH_HOST: ${{ vars.SSH_HOST || '76.13.18.99' }}
+          SSH_USER: ${{ vars.SSH_USER || 'deploy' }}
+          SSH_PORT: ${{ vars.SSH_PORT || '22' }}
         run: |
           rsync -avz --delete \
             --exclude='.git/' \
@@ -35,5 +47,33 @@ jobs:
             --exclude='.gitignore' \
             --exclude='README.md' \
             --exclude='DEPLOYMENT.md' \
-            -e "ssh -p ${{ vars.SSH_PORT || '22' }}" \
-            ./ ${{ vars.SSH_USER || 'deploy' }}@${{ vars.SSH_HOST || '76.13.18.99' }}:/var/www/portfolio/
+            -e "ssh -p $SSH_PORT" \
+            ./ "$SSH_USER@$SSH_HOST:/var/www/portfolio/"
+
+      - name: Health check
+        env:
+          PROBE_URL: ${{ vars.SITE_URL || 'https://niko-theimpostor.dev' }}
+        run: |
+          echo "Probing $PROBE_URL"
+          for i in $(seq 1 18); do
+            code=$(curl -sk -o /dev/null -w "%{http_code}" --max-time 5 "$PROBE_URL" || echo 000)
+            echo "  attempt $i: HTTP $code"
+            if [ "$code" = "200" ] || [ "$code" = "301" ] || [ "$code" = "302" ]; then
+              echo "Site is healthy"; exit 0
+            fi
+            sleep 5
+          done
+          echo "Site did not return 2xx/3xx within 90s."
+          exit 1
+
+      - name: Summary
+        if: always()
+        env:
+          COMMIT: ${{ github.sha }}
+          STATUS: ${{ job.status }}
+        run: |
+          {
+            echo "### Deployment summary"
+            echo "- Commit: \`${COMMIT}\`"
+            echo "- Status: ${STATUS}"
+          } >> "$GITHUB_STEP_SUMMARY"
