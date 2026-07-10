@@ -7,15 +7,16 @@ Personal portfolio site for Niko Setiawan, Full-Stack Developer. Static HTML/CSS
 - Plain HTML5, CSS3, vanilla JS
 - Google Fonts: Anton, Inter, Space Grotesk, JetBrains Mono
 - Brand icons inlined as SVG (sourced from [Simple Icons](https://simpleicons.org), CC0)
+- Static dark background (`--bg` on `body`), no animation layer
 
 ## Structure
 
 ```
 index.html          entry point
 css/style.css        all styles
-js/script.js          nav highlighting, scroll reveal, contact form, parallax background
+js/script.js          nav highlighting, scroll reveal, contact form
 assets/images/       profile photo + project screenshots
-favicon.svg
+favicon.ico
 robots.txt
 sitemap.xml
 .gitignore

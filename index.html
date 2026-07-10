@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Niko Setiawan | Full-Stack Software Engineer</title>
+    <title>Niko Setiawan | Full-Stack Developer</title>
     <meta
       name="description"
-      content="Niko Setiawan — Full-Stack Software Engineer with 6+ years across fintech, insurance &amp; automotive. Java, Spring Boot, React, Kubernetes. Open to EU opportunities."
+      content="Niko Setiawan — Full-Stack Developer with 6+ years across fintech, insurance &amp; automotive."
     />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://niko-setiawan.dev/" />
@@ -16,10 +16,7 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Niko Setiawan — Portfolio" />
-    <meta
-      property="og:title"
-      content="Niko Setiawan | Full-Stack Software Engineer"
-    />
+    <meta property="og:title" content="Niko Setiawan | Full-Stack Developer" />
     <meta
       property="og:description"
       content="6+ years building production-grade web &amp; mobile applications across fintech, insurance &amp; automotive. Java, Spring Boot, React, Kubernetes."
@@ -33,10 +30,7 @@
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Niko Setiawan | Full-Stack Software Engineer"
-    />
+    <meta name="twitter:title" content="Niko Setiawan | Full-Stack Developer" />
     <meta
       name="twitter:description"
       content="6+ years building production-grade web &amp; mobile applications across fintech, insurance &amp; automotive."
@@ -46,7 +40,7 @@
       content="https://niko-setiawan.dev/assets/images/fruddev.jpeg"
     />
 
-    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="favicon.ico" sizes="any" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -67,7 +61,7 @@
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Niko Setiawan",
-        "jobTitle": "Full-Stack Software Engineer",
+        "jobTitle": "Full-Stack Developer",
         "url": "https://niko-setiawan.dev/",
         "image": "https://niko-setiawan.dev/assets/images/fruddev.jpeg",
         "email": "mailto:niko92.biz@gmail.com",
@@ -101,13 +95,6 @@
     </script>
   </head>
   <body>
-    <div class="bg-fx" id="bg-fx" aria-hidden="true">
-      <div class="bg-grid"></div>
-      <span class="bg-blob bg-blob--red"></span>
-      <span class="bg-blob bg-blob--green"></span>
-      <span class="bg-blob bg-blob--red bg-blob--small"></span>
-    </div>
-
     <div class="page-shell">
       <!-- SIDEBAR -->
       <aside class="sidebar">
@@ -126,7 +113,7 @@
               <img
                 class="profile-photo"
                 src="assets/images/fruddev.jpeg"
-                alt="Niko Setiawan, Full-Stack Software Engineer"
+                alt="Niko Setiawan, Full-Stack Developer"
                 width="680"
                 height="850"
                 fetchpriority="high"
@@ -150,8 +137,16 @@
 
           <p class="profile-name">Niko Setiawan</p>
           <p class="profile-tagline">
-            A Full-Stack Engineer who has shipped production systems across
-            fintech, insurance &amp; automotive.
+            <span class="sr-only">Full-Stack Developer</span>
+            <span id="tagline-type" aria-hidden="true"></span
+            ><span class="tagline-cursor" aria-hidden="true"></span>
+          </p>
+          <p class="profile-location">
+            <svg class="icon" viewBox="0 0 24 24">
+              <path d="M12 21s7-6.7 7-12a7 7 0 0 0-14 0c0 5.3 7 12 7 12Z" />
+              <circle cx="12" cy="9" r="2.4" />
+            </svg>
+            Jakarta, Indonesia
           </p>
 
           <div class="social-row">
@@ -206,51 +201,55 @@
       <!-- MAIN -->
       <div class="main">
         <div class="topnav-bar">
-        <nav class="topnav-icons" id="topnav">
-          <a href="#hero" aria-label="Home"
-            ><svg class="icon" viewBox="0 0 24 24">
-              <path d="M4 11.5 12 4l8 7.5" />
-              <path d="M6 10v10h5v-6h2v6h5V10" /></svg
-          ></a>
-          <a href="#projects" aria-label="Projects"
-            ><svg class="icon" viewBox="0 0 24 24">
-              <path
-                d="M4 7a1 1 0 0 1 1-1h4l2 2h8a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7Z"
-              /></svg
-          ></a>
-          <a href="#experience" aria-label="Experience"
-            ><svg class="icon" viewBox="0 0 24 24">
-              <rect x="3" y="8" width="18" height="11" rx="1.5" />
-              <path d="M9 8V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" />
-              <path d="M3 13h18" /></svg
-          ></a>
-          <a href="#tools" aria-label="Tools"
-            ><svg class="icon" viewBox="0 0 24 24">
-              <path
-                d="M14.7 6.3a4 4 0 0 0-5.4 5.4L4 17l3 3 5.3-5.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2-2 2.6-2.6Z"
-              /></svg
-          ></a>
-          <a href="#contact" aria-label="Contact"
-            ><svg class="icon" viewBox="0 0 24 24">
-              <path
-                d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"
-              />
-              <path d="m3.5 6.2 8.5 6.8 8.5-6.8" /></svg
-          ></a>
-        </nav>
-        <a href="#contact" class="btn btn-primary btn-sm topnav-cta">Hire Me</a>
+          <nav class="topnav-icons" id="topnav">
+            <a href="#hero" aria-label="Home"
+              ><svg class="icon" viewBox="0 0 24 24">
+                <path d="M4 11.5 12 4l8 7.5" />
+                <path d="M6 10v10h5v-6h2v6h5V10" /></svg
+            ></a>
+            <a href="#projects" aria-label="Projects"
+              ><svg class="icon" viewBox="0 0 24 24">
+                <path
+                  d="M4 7a1 1 0 0 1 1-1h4l2 2h8a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7Z"
+                /></svg
+            ></a>
+            <a href="#experience" aria-label="Experience"
+              ><svg class="icon" viewBox="0 0 24 24">
+                <rect x="3" y="8" width="18" height="11" rx="1.5" />
+                <path d="M9 8V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" />
+                <path d="M3 13h18" /></svg
+            ></a>
+            <a href="#tools" aria-label="Tools"
+              ><svg class="icon" viewBox="0 0 24 24">
+                <path
+                  d="M14.7 6.3a4 4 0 0 0-5.4 5.4L4 17l3 3 5.3-5.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2-2 2.6-2.6Z"
+                /></svg
+            ></a>
+            <a href="#contact" aria-label="Contact"
+              ><svg class="icon" viewBox="0 0 24 24">
+                <path
+                  d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"
+                />
+                <path d="m3.5 6.2 8.5 6.8 8.5-6.8" /></svg
+            ></a>
+          </nav>
+          <a href="#contact" class="btn btn-primary btn-sm topnav-cta"
+            >Hire Me</a
+          >
         </div>
 
         <!-- HERO -->
         <section id="hero" class="section">
           <h1 class="ghost-heading">
             <span class="line line--solid">FULL-STACK</span>
-            <span class="line line--ghost">ENGINEER</span>
+            <span class="line line--ghost">DEVELOPER</span>
           </h1>
           <p class="hero-sub">
-            6+ years building production-grade web &amp; mobile applications
-            across fintech, insurance &amp; automotive — from backend APIs to
-            CI/CD pipelines.
+            Hey, I'm Niko — for 6+ years I've been building web &amp; mobile
+            products across fintech, insurance &amp; automotive. I enjoy
+            building reliable software end-to-end—from designing backend systems
+            and APIs to automated testing, CI/CD pipelines, code quality,
+            security scanning, and scalable engineering practices.
           </p>
 
           <div class="hero-stats">
@@ -289,7 +288,8 @@
                   <path d="M8.5 20h7M12 16.5V20" /></svg
               ></span>
               <p>
-                FRONTEND &amp; MOBILE — React, Next.js, TypeScript, React Native, Angular
+                FRONTEND &amp; MOBILE — React, Next.js, TypeScript, React
+                Native, Angular
               </p>
               <span class="tag-card-arrow"
                 ><svg class="icon" viewBox="0 0 24 24">
@@ -675,9 +675,9 @@
               ></span>
               <div class="tool-tile-main">
                 <p class="tool-name">Spring Boot</p>
-                <p class="tool-sub">Framework — 88%</p>
+                <p class="tool-sub">Framework — 94%</p>
                 <div class="tool-bar">
-                  <span style="width: 88%; background: #6db33f"></span>
+                  <span style="width: 94%; background: #6db33f"></span>
                 </div>
               </div>
             </div>
@@ -690,9 +690,9 @@
               ></span>
               <div class="tool-tile-main">
                 <p class="tool-name">Docker</p>
-                <p class="tool-sub">Container Platform — 76%</p>
+                <p class="tool-sub">Container Platform — 82%</p>
                 <div class="tool-bar">
-                  <span style="width: 76%; background: #2496ed"></span>
+                  <span style="width: 82%; background: #2496ed"></span>
                 </div>
               </div>
             </div>
@@ -705,9 +705,9 @@
               ></span>
               <div class="tool-tile-main">
                 <p class="tool-name">SQL Server</p>
-                <p class="tool-sub">Database — 68%</p>
+                <p class="tool-sub">Database — 85%</p>
                 <div class="tool-bar">
-                  <span style="width: 68%; background: #cc2927"></span>
+                  <span style="width: 85%; background: #cc2927"></span>
                 </div>
               </div>
             </div>
@@ -825,9 +825,9 @@
               ></span>
               <div class="tool-tile-main">
                 <p class="tool-name">Git</p>
-                <p class="tool-sub">Version Control — 91%</p>
+                <p class="tool-sub">Version Control — 80%</p>
                 <div class="tool-bar">
-                  <span style="width: 91%; background: #f03c2e"></span>
+                  <span style="width: 80%; background: #f03c2e"></span>
                 </div>
               </div>
             </div>
@@ -840,9 +840,9 @@
               ></span>
               <div class="tool-tile-main">
                 <p class="tool-name">SonarQube</p>
-                <p class="tool-sub">Code Quality — 69%</p>
+                <p class="tool-sub">Code Quality — 82%</p>
                 <div class="tool-bar">
-                  <span style="width: 69%; background: #126ed3"></span>
+                  <span style="width: 82%; background: #126ed3"></span>
                 </div>
               </div>
             </div>
@@ -881,7 +881,8 @@
                 ><svg viewBox="0 0 24 24" fill="currentColor">
                   <path
                     d="M12 2 3.5 5.2v6.1c0 5.6 3.7 10.4 8.5 12.2 4.8-1.8 8.5-6.6 8.5-12.2V5.2Z"
-                  /><path
+                  />
+                  <path
                     fill="#111111"
                     d="m9.2 12.3 2 2 3.6-4.4-1.1-.9-2.7 3.3-1-1Z"
                   /></svg
@@ -908,9 +909,10 @@
           <div class="contact-layout">
             <div class="contact-info">
               <p class="hero-sub">
-                I'm actively looking for
-                <strong>senior engineer or technical lead roles</strong> at
-                European product companies. Remote-first or relocation-ready.
+                Open to
+                <strong>frontend, backend, devOps, full-stack roles</strong>
+                anywhere in the world, with a particular focus on Europe.
+                Remote-first, relocation-ready, and glad to talk.
               </p>
               <div class="contact-links">
                 <a href="mailto:niko92.biz@gmail.com" class="contact-item card">
@@ -1020,13 +1022,12 @@
 
         <footer>
           <p>
-            © 2026 Niko Setiawan · Full-Stack Software Engineer · Jakarta,
-            Indonesia
+            © 2026 Niko Setiawan · Full-Stack Developer · Jakarta, Indonesia
           </p>
         </footer>
       </div>
     </div>
 
-    <script src="js/script.js"></script>
+    <script src="js/script.js" defer></script>
   </body>
 </html>

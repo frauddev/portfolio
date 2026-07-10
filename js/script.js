@@ -1,18 +1,40 @@
-/* ── Parallax background: drifts slower than the page scrolls ── */
+/* ── Tagline typewriter loop ── */
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const bgFx = document.getElementById('bg-fx');
-if (bgFx && !prefersReducedMotion) {
-  let ticking = false;
-  const updateParallax = () => {
-    ticking = false;
-    bgFx.style.transform = `translateY(${window.scrollY * 0.12}px)`;
-  };
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      requestAnimationFrame(updateParallax);
-      ticking = true;
-    }
-  }, { passive: true });
+const taglineEl = document.getElementById('tagline-type');
+if (taglineEl) {
+  const TAGLINE_TEXT = 'A Full-Stack Developer';
+  if (prefersReducedMotion) {
+    taglineEl.textContent = TAGLINE_TEXT;
+  } else {
+    let charIndex = 0;
+    let deleting = false;
+    const TYPE_MS = 75;
+    const DELETE_MS = 40;
+    const HOLD_FULL_MS = 1800;
+    const HOLD_EMPTY_MS = 500;
+
+    (function tick() {
+      if (!deleting) {
+        charIndex++;
+        taglineEl.textContent = TAGLINE_TEXT.slice(0, charIndex);
+        if (charIndex === TAGLINE_TEXT.length) {
+          deleting = true;
+          setTimeout(tick, HOLD_FULL_MS);
+        } else {
+          setTimeout(tick, TYPE_MS);
+        }
+      } else {
+        charIndex--;
+        taglineEl.textContent = TAGLINE_TEXT.slice(0, charIndex);
+        if (charIndex === 0) {
+          deleting = false;
+          setTimeout(tick, HOLD_EMPTY_MS);
+        } else {
+          setTimeout(tick, DELETE_MS);
+        }
+      }
+    })();
+  }
 }
 
 /* ── Active top-nav icon highlight ── */
