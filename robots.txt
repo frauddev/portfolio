@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://niko-setiawan.dev/sitemap.xml
+Sitemap: https://niko-theimpostor.dev/sitemap.xml

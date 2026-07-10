@@ -12,14 +12,18 @@ Personal portfolio site for Niko Setiawan, Full-Stack Developer. Static HTML/CSS
 ## Structure
 
 ```
-index.html          entry point
-css/style.css        all styles
-js/script.js          nav highlighting, scroll reveal, contact form
-assets/images/       profile photo + project screenshots
+index.html                     entry point
+css/style.css                   all styles
+js/script.js                     nav highlighting, scroll reveal, contact form
+assets/images/                  profile photo + project screenshots
 favicon.ico
 robots.txt
 sitemap.xml
 .gitignore
+.github/workflows/              CI/CD: auto-deploy to the VPS (see DEPLOYMENT.md)
+deploy/docker-compose.yml       portfolio container (joins existing nes-net)
+deploy/nginx.conf                full nes-nginx config (existing + portfolio server block) — drop-in replacement
+DEPLOYMENT.md                   one-time VPS + GitHub setup for auto-deploy
 ```
 
 ## Running locally
@@ -36,11 +40,9 @@ Opening `index.html` directly via `file://` also works, but a local server is re
 
 ## Deploying
 
-Before deploying to a real domain, update the placeholder domain (`https://niko-setiawan.dev/`) in:
+Auto-deploy pipeline: push to `master` → production, synced via SSH/rsync to the VPS. One-time setup (VPS + GitHub Secrets) is documented in **[DEPLOYMENT.md](DEPLOYMENT.md)** — nothing there has been run yet, it's a guide for you to follow.
 
-- `index.html` — canonical link, Open Graph/Twitter meta tags, JSON-LD `Person` schema
-- `robots.txt` — sitemap URL
-- `sitemap.xml` — page URL
+Domain is `https://niko-theimpostor.dev/` — already set in `index.html` (canonical link, Open Graph/Twitter meta tags, JSON-LD `Person` schema), `robots.txt`, and `sitemap.xml`.
 
 ## Sections
 

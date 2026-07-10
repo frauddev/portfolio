@@ -8,3 +8,7 @@ SITE_SPEC.md
 # OS cruft
 .DS_Store
 Thumbs.db
+
+# Deployment/infra details — not for the public repo
+DEPLOYMENT.md
+deploy/
